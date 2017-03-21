@@ -13,10 +13,10 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tank.msg.code.MsgDecoder;
-import tank.msg.code.MsgEncoder;
+import tank.msg.code.delimiter.MsgDecoder;
+import tank.msg.code.delimiter.MsgEncoder;
 import tank.msg.common.Constant;
-import tank.msg.handler.SocketClientHandler;
+import tank.msg.network.SocketClientHandler;
 
 
 /**
