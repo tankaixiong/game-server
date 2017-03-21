@@ -2,6 +2,7 @@ syntax = "proto2";
 
 //option go_package = "descriptor";
 option java_package = "tank.msg.protoc";
+
 option java_outer_classname = "Packet";
 //option csharp_namespace = "";
 //option objc_class_prefix = "GPB";
@@ -14,13 +15,23 @@ option optimize_for = SPEED;
 // The protocol compiler can output a FileDescriptorSet containing the .proto
 // files it parses.
 message Msg {
-  optional int32 id=1;
-  optional bytes data=2;
+    optional int32 id = 1;
+    optional bytes data = 2;
 }
 
-enum MsgType{
-  NoFind=0;
-  KeepAlive=1;
+enum MsgType {
+    NoFind = 0;
+    KeepAlive = 1;
 
+}
 
+message LoginRequest {
+    optional int32 id = 1;
+    optional string name = 2;
+}
+
+message LoginResponse {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional bool isSuccess = 3;
 }

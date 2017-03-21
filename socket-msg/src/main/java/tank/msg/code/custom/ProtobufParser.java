@@ -1,28 +1,26 @@
 package tank.msg.code.custom;
 
+import com.google.protobuf.MessageLite;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tank.msg.code.IParser;
 import tank.msg.code.MsgEntity;
-import tank.msg.utils.JsonUtil;
 
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 
 /**
  * @Author: tank
  * @Email: kaixiong.tan@qq.com
- * @Date: 2017/3/20
- * @Version: 1.0 消息以JSON格式发送
- * @Description: 消息格式 type(int),byte[](数据)
+ * @Date: 2017/3/21
+ * @Version: 1.0
+ * @Description:
  */
-public class JsonParser implements IParser {
+public class ProtobufParser implements IParser {
 
     private static Logger LOG = LoggerFactory.getLogger(JsonParser.class);
-    private static final Charset UTF_8 = Charset.forName("UTF-8");
 
+    @Override
     public MsgEntity decode(byte[] data) {
-
         if (data.length < 4) {
             LOG.error("消息解析异常");
         }
@@ -37,34 +35,27 @@ public class JsonParser implements IParser {
         ByteBuffer.wrap(data, 4, data.length - 4).get(subArray);
 
         //byte[] subArray = Arrays.copyOfRange(data, 4, data.length);//
-        String dataStr = new String(subArray, UTF_8);
 
-        return new MsgEntity(type, dataStr);
-
+        return new MsgEntity(type, subArray);
     }
 
+    @Override
     public byte[] encode(MsgEntity entity) {
 
         int type = entity.getType();
 
-        String data = JsonUtil.toJson(entity.getData());
-        byte[] dataByte = data.getBytes(UTF_8);
+        MessageLite msg = null;
+
+
+        if (entity.getData() instanceof MessageLite) {
+            msg = (MessageLite) entity.getData();
+        } else if (entity.getData() instanceof MessageLite.Builder) {
+            msg = ((MessageLite.Builder) entity.getData()).build();
+        }
+
+
+        byte[] dataByte = msg.toByteArray();
 
         return ByteBuffer.allocate(4 + dataByte.length).putInt(type).put(dataByte).array();
-
     }
-
-    public static void main(String[] args) {
-
-        JsonParser jsonParser = new JsonParser();
-
-
-        byte[] bytes = jsonParser.encode(new MsgEntity(1, "测试"));
-        System.out.println(bytes);
-
-        MsgEntity msgEntity = jsonParser.decode(bytes);
-        System.out.println(msgEntity);
-
-    }
-
 }

@@ -2,7 +2,8 @@ package tank.msg.common.bee;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tank.msg.code.custom.JsonParser;
+import tank.msg.code.IParser;
+import tank.msg.code.custom.ProtobufParser;
 import tank.msg.common.MsgObj;
 import tank.msg.common.ThreadPoolManager;
 import tank.msg.work.IMsgDispatcher;
@@ -35,7 +36,10 @@ public class ThreadBeeGroup {
 
         ThreadBeeGroup threadBeeGroup = new ThreadBeeGroup();
 
-        threadBeeGroup.setDispatcher(new MsgDispatcher(new JsonParser()));
+        //IParser parser=new JsonParser();//这里切换解码器
+        IParser parser=new ProtobufParser();
+
+        threadBeeGroup.setDispatcher(new MsgDispatcher(parser));
 
         threadBeeGroup.setExecutor(ThreadPoolManager.getExecutor());
 

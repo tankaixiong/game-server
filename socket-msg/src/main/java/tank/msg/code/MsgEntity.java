@@ -7,11 +7,11 @@ package tank.msg.code;
  * @Version: 1.0
  * @Description:
  */
-public class MsgEntity {
+public class MsgEntity<T> {
     private int type;
-    private Object data;
+    private T data;
 
-    public MsgEntity(int type, Object data) {
+    public MsgEntity(int type, T data) {
         this.type = type;
         this.data = data;
     }
@@ -24,11 +24,11 @@ public class MsgEntity {
         this.type = type;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 

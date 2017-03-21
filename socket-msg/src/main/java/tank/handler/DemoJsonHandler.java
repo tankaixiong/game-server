@@ -13,12 +13,12 @@ import tank.msg.work.RequestMethod;
  * @Version: 1.0
  * @Description:
  */
-public class DemoHandler {
-    private Logger LOG = LoggerFactory.getLogger(DemoHandler.class);
+public class DemoJsonHandler {
+    private Logger LOG = LoggerFactory.getLogger(DemoJsonHandler.class);
 
-    @RequestMethod(type = RequestType.LOGIN)
+    @RequestMethod(type = RequestType.TEST)
     public Object login(Session session, Object data) {
-        LOG.info("处理登录请求");
+        LOG.info("处理TEST请求");
         LOG.info("收到数据:{}", data);
 
         //session.getChannel().close();

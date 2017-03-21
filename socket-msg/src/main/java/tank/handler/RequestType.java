@@ -8,6 +8,7 @@ package tank.handler;
  * @Description:
  */
 public enum RequestType {
+    TEST(0),
     LOGIN(1);
 
     private int id;
