@@ -2,9 +2,9 @@ package tank.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tank.msg.network.RequestMethod;
 import tank.msg.common.Session;
 import tank.msg.protoc.MyMsg;
+import tank.msg.work.RequestMethod;
 
 /**
  * @Author: tank
