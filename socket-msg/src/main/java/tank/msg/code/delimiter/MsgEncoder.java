@@ -1,4 +1,4 @@
-package tank.msg.code;
+package tank.msg.code.delimiter;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
