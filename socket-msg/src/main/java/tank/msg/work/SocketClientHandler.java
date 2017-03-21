@@ -1,4 +1,4 @@
-package tank.msg.net;
+package tank.msg.work;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

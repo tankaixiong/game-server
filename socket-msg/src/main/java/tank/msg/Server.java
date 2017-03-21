@@ -20,8 +20,8 @@ import tank.msg.code.delimiter.MsgEncoder;
 import tank.msg.common.Constant;
 import tank.msg.common.ThreadPoolManager;
 import tank.msg.common.bee.ThreadBeeGroup;
-import tank.msg.network.RequestManager;
-import tank.msg.network.SocketServerHandler;
+import tank.msg.work.RequestManager;
+import tank.msg.work.SocketServerHandler;
 
 import java.util.Scanner;
 
@@ -73,7 +73,6 @@ public class Server {
     }
 
     public void start() {
-
 
 
         Thread thread = new Thread() {

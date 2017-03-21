@@ -1,4 +1,4 @@
-package tank.msg.net;
+package tank.msg.work;
 
 import com.esotericsoftware.reflectasm.MethodAccess;
 

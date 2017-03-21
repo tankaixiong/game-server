@@ -1,4 +1,4 @@
-package tank.msg.net;
+package tank.msg.work;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

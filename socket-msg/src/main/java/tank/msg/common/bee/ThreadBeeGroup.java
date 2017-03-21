@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import tank.msg.code.custom.JsonParser;
 import tank.msg.common.MsgObj;
 import tank.msg.common.ThreadPoolManager;
-import tank.msg.network.IMsgDispatcher;
-import tank.msg.network.MsgDispatcher;
+import tank.msg.work.IMsgDispatcher;
+import tank.msg.work.MsgDispatcher;
 
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;

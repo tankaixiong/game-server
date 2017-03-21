@@ -1,6 +1,7 @@
 package tank.msg.common;
 
-import tank.msg.network.IMsgDispatcher;
+
+import tank.msg.work.IMsgDispatcher;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Future;
