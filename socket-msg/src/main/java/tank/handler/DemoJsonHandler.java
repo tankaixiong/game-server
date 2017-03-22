@@ -17,7 +17,7 @@ public class DemoJsonHandler {
     private Logger LOG = LoggerFactory.getLogger(DemoJsonHandler.class);
 
     @RequestMethod(type = RequestType.TEST)
-    public Object login(Session session, Object data) {
+    public Object login(Session session, String data) {
         LOG.info("处理TEST请求");
         LOG.info("收到数据:{}", data);
 

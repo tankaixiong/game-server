@@ -19,11 +19,11 @@ public class DemoProtobufHandler {
     private Logger LOG = LoggerFactory.getLogger(DemoProtobufHandler.class);
 
     @RequestMethod(type = RequestType.LOGIN)
-    public Object login(Session session, Object data) throws InvalidProtocolBufferException {
+    public Object login(Session session, byte[] data) throws InvalidProtocolBufferException {
         LOG.info("处理登录请求");
 
         //session.getChannel().close();
-        Packet.LoginRequest request = Packet.LoginRequest.parseFrom((byte[]) data);
+        Packet.LoginRequest request = Packet.LoginRequest.parseFrom(data);
         LOG.info("\n{}", TextFormat.printToString(request));
 
 

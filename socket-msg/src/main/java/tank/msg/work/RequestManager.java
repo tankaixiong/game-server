@@ -7,7 +7,6 @@ import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tank.msg.common.Session;
 import tank.msg.common.SocketSession;
 
 import java.lang.reflect.Method;
@@ -72,7 +71,8 @@ public class RequestManager {
     public static Object execute(Integer type, SocketSession session, Object param) {
         MethodMeta access = requestMethodMap.get(type);
         if (access != null) {
-            return access.getAccess().invoke(access.getHandlerObj(), access.getName(), new Class[]{Session.class, Object.class}, session, param);
+            //return access.getAccess().invoke(access.getHandlerObj(), access.getName(), new Class[]{Session.class, Object.class}, session, param);
+            return access.getAccess().invoke(access.getHandlerObj(), access.getName(), session, param);
         } else {
             LOG.error("没有找到消息类型为:{}的处理", type);
         }
