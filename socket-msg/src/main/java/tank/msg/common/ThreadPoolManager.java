@@ -6,6 +6,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @Author: tank
@@ -25,5 +26,20 @@ public class ThreadPoolManager {
 
     public static ExecutorService getExecutor() {
         return executor;
+    }
+
+    public static void print() {
+        ThreadPoolExecutor poolExecutor = (ThreadPoolExecutor) executor;
+        System.out.println(
+                String.format("[monitor] [%d/%d] Active: %d, Completed: %d, Task: %d, isShutdown: %s, isTerminated: %s",
+                        poolExecutor.getPoolSize(),
+                        poolExecutor.getCorePoolSize(),
+                        poolExecutor.getActiveCount(),
+                        poolExecutor.getCompletedTaskCount(),
+                        poolExecutor.getTaskCount(),
+                        poolExecutor.isShutdown(),
+                        poolExecutor.isTerminated()));
+
+
     }
 }
