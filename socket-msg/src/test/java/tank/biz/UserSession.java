@@ -42,7 +42,7 @@ public class UserSession {
 
     public void run() {
 
-        ThreadPoolManager.getExecutor().submit(new Thread() {
+        ThreadPoolManager.getExecutor().submit(new Runnable() {
 
             @Override
             public void run() {
